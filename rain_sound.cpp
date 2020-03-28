@@ -1,4 +1,5 @@
-//27-03-2020 Very-easy/easy
+// https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/rain-41f57695/
+// 27-03-2020 Very-easy/easy
 
 #include <bits/stdc++.h>
 

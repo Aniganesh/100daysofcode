@@ -1,3 +1,6 @@
+// https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/distribute-chocolates-70c2c2ab/
+// 27-03-2020 Very-easy/easy
+
 #include <bits/stdc++.h>
 
 using namespace std;

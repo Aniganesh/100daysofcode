@@ -1,13 +1,6 @@
-/*
-// Sample code to perform I/O:
+// https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/binary-associativity-fc8ca73f/
+// 27-03-2020 Very-easy/easy
 
-cin >> name;                            // Reading input from STDIN
-cout << "Hi, " << name << ".\n";        // Writing output to STDOUT
-
-// Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
-*/
-
-// Write your code here
 #include <bits/stdc++.h>
 
 using namespace std;

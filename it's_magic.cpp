@@ -1,3 +1,4 @@
+// https://www.hackerearth.com/practice/basic-programming/input-output/basics-of-input-output/practice-problems/algorithm/its-magic/
 // 27-03-2020 Very-easy/easy
 
 #include<bits/stdc++.h>
