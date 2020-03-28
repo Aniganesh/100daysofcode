@@ -1,6 +1,5 @@
 // https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/one-string-no-trouble-37037871/
-// 28-03-2020
-
+// 28-03-2020 Very-easy/easy
 #include<bits/stdc++.h>
 
 using namespace std;

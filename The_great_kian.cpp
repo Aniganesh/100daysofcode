@@ -1,5 +1,5 @@
 // https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/the-great-kian/
-// 28-03-2020 
+// 28-03-2020 Very-easy/easy
 
 #include<bits/stdc++.h>
 

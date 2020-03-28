@@ -1,5 +1,5 @@
 // https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/set-numbers-bea74f5a/
-// 28-03-2020
+// 28-03-2020 Very-easy/easy
 #include <bits/stdc++.h>
 
 using namespace std;
