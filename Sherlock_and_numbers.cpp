@@ -3,33 +3,39 @@
 #include<bits/stdc++.h>
 #define MOD % 1000000007
 typedef long long ll;
- 
+
 using namespace std;
- 
+
+int removed[(int)1e5+1];
+
+int get(int n, int k){
+    int i = 0;
+    while(i < k and removed[i] <= n)i++;
+    return n-i;
+}
+
 int main(){
     int testcases;
     scanf("%d", &testcases);
     while(testcases--){
-        set<int> allNumsTillN;
-        int uptoN;
-        scanf("%d", &uptoN);
-        for(int i = 1; i < uptoN+1; i++){
-            allNumsTillN.insert(i);
-        }
-        int numElementsRemoved, kthSmallest;
-        scanf("%d %d", &numElementsRemoved, &kthSmallest);
-        int num;
-        while(numElementsRemoved--){
-            scanf("%d", &num);
-            const int remove = num;
-            allNumsTillN.erase(remove);
-        }
-        if(kthSmallest > allNumsTillN.size())
+        int uptoN, numRemoved, pthSmallest;
+        scanf("%d %d %d", &uptoN, &numRemoved, &pthSmallest);
+        
+        for(int i = 0; i < numRemoved; i++)
+            scanf("%d", &removed[i]);
+        sort(removed, removed+numRemoved);
+        int low = 0, high = uptoN, mid;
+        if(get(high, numRemoved) < pthSmallest){
             printf("-1\n");
-        else{
-            set<int>::iterator it = allNumsTillN.begin();
-            advance(it, kthSmallest-1);
-            printf("%d\n", *it);
+            continue;
         }
+        while(high - low > 1){
+            mid = (high + low) / 2;
+            // binary search
+            int q =  get(mid, numRemoved);
+            if(q < pthSmallest) low = mid;
+            else high = mid;
+        }
+        printf("%d\n", low+1);
     }
 }

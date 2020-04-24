@@ -1,63 +1,38 @@
 // https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/student-arrangement-6/
 // 23-04-2020 Very-easy/easy
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+#define MOD % 1000000007
+typedef long long ll;
+
 using namespace std;
-int main()
-{
-    ios::sync_with_stdio(false);
-    int n,m,k,i;
-    cin>>n>>m>>k;
-    int arr[n+1],cnt[m+1];
-    memset(cnt,0,sizeof cnt);
-    set <int> s;
-    for(i=1;i<=n;i++)
-    {
-    	cin>>arr[i];
+
+int main(){
+    
+    int numRows, numStudents, capacity;
+    cin >> numStudents >> numRows >> capacity;
+    int preferred, didNotGetPreferred = 0;
+
+    set<int> rowsAvailable;
+    
+    for(int i = 1; i <= numRows; i++)
+        rowsAvailable.insert(i);
+    
+    int seatsOccupiedInRow[numRows+1] = {0};
+    while(numStudents--){
+        cin >> preferred;
+        if(rowsAvailable.empty()){
+            didNotGetPreferred += numStudents+1;
+            break;
+        }
+        set<int>::iterator availableRow = rowsAvailable.lower_bound(preferred);
+        if(availableRow == rowsAvailable.end())
+            availableRow = rowsAvailable.begin();
+            
+        if(*availableRow != preferred)
+            didNotGetPreferred++;
+        seatsOccupiedInRow[*availableRow]++;
+        if(seatsOccupiedInRow[*availableRow] == capacity)
+            rowsAvailable.erase(availableRow);
     }
-    for(i=1;i<=m;i++)
-    {
-    	s.insert(i);
-    }
-    int ans=0;
-    for(i=1;i<=n;i++)
-    {
-    	if(s.find(arr[i])==s.end())
-    	{
-    		ans++;
-    		if(!s.empty())
-		{
-			pair <set<int>:: iterator,bool> it=s.insert(arr[i]);
-    			it.first++;
-    			if(it.first==s.end())
-    			{	
-    				int idx=*(s.begin());
-    				cnt[idx]++;
-    				if(cnt[idx]>=k)
-    				{
-    					s.erase(idx);
-    				}
-    			}
-    			else
-    			{
-    				int idx=*(it.first);
-    				cnt[idx]++;
-    				if(cnt[idx]>=k)
-    				{
-    					s.erase(idx);
-    				}
-    			}
-    			s.erase(arr[i]);
-    		}	
-    	}
-    	else
-    	{
-    		cnt[arr[i]]++;
-    		if(cnt[arr[i]]>=k)
-    		{
-    			s.erase(arr[i]);
-    		}
-    	}
-    }
-    cout<<ans<<endl;
-    return 0;
+    cout << didNotGetPreferred;
 }
