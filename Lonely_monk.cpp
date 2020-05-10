@@ -9,15 +9,17 @@ using namespace std;
 int main(){
     int numValues;
     cin >> numValues;
-    int sumValues[numValues+1] = {0}, value, numEvenSums = 0;
-    int oddAndEvenSumsCount[2] = {1,0};
-    for(int i = 1; i < numValues + 1; i++){
+    ll oddAndEvenSumCount[] = {1,0};
+    ll RES = 0, sum = 0, value;
+    while(numValues--){
         cin >> value;
-        sumValues[i] = sumValues[i-1]+value;
-        sumValues[i] %= 2;
-        numEvenSums += oddAndEvenSumsCount[sumValues[i]];
-        ++oddAndEvenSumsCount[sumValues[i]];
+        // determine if sum of all numbers till now is odd or even
+        sum = (sum + value) % 2;
+        // increment odd sum if odd or increment even.
+        ++oddAndEvenSumCount[sum];
     }
-    
-    cout << numEvenSums;
+    RES += (oddAndEvenSumCount[0] * (oddAndEvenSumCount[0] - 1)) / 2;
+    RES += (oddAndEvenSumCount[1] * (oddAndEvenSumCount[1] - 1)) / 2;
+    cout << RES;
 }
+// Help: https://www.geeksforgeeks.org/find-number-subarrays-even-sum/
