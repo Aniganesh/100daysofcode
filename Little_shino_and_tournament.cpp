@@ -1,38 +1,28 @@
-// https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/little-shino-and-the-tournament/editorial/
+// https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/little-shino-and-the-tournament/
 // 26-05-2020 Medium
 #include<bits/stdc++.h>
-#define MOD % 1000000007
-typedef long long ll;
-
 using namespace std;
-
 const int INF = 1e9;
 const int N = 100031;
 int n, tests;
 int level[N];
 vector<pair<int, int> > v;
 int ans[N];
-
 int main(){
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cin >> n >> tests;
-
 	for (int i = 0; i < n; i++)
 	{
 		cin >> level[i];
 	}
-
 	v.clear();
-
 	for (int i = 0; i < n; i++)
 	{
 		v.push_back(make_pair(level[i], i));
 	}
-
 	for (int i = 0; i < n; i++)
 		ans[i] = 0;
-
 	while (v.size()>1)
 	{
 		vector<pair<int, int> > v2;

@@ -1,5 +1,6 @@
 // https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/bus-journey-3754c143/
 // 26-05-2020 Medium
+
 #include<bits/stdc++.h>
 #define MOD % 1000000007
 typedef long long ll;
