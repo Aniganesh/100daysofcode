@@ -1,18 +1,34 @@
-// https://leetcode.com/explore/challenge/card/30-day-leetcoding-challenge/528/week-1/3286/
-// 03-05-2020 Very-easy/easy
-class Solution {
-public:
-    void moveZeroes(vector<int>& nums) {
-        vector<int> RES;
-        for(int i: nums){
-            if(i != 0){
-                RES.push_back(i);
-            }
-        }
-        int sz = nums.size();
-        while(RES.size() < sz){
-            RES.push_back(0);
-        }
-        nums = RES;
+// https://www.hackerearth.com/problem/algorithm/move-zeroes-5/submissions/
+// 30-05-2020 Very-easy/easy
+
+#include<bits/stdc++.h>
+#define MOD % 1000000007
+typedef long long ll;
+
+using namespace std;
+
+int main(){
+    cin.tie(false);
+    cout.tie(false);
+    ios_base::sync_with_stdio(false);
+    
+    int numValues;
+    cin >> numValues;
+    
+    int numZeroes = 0;
+
+    while(numValues--){
+        int val;
+        cin >> val;
+        if(val != 0)
+            cout << val << endl;
+        else
+            ++numZeroes;
     }
-};
+    
+    while(numZeroes--){
+        cout << "0\n";
+    }
+    
+    return 0;
+}
